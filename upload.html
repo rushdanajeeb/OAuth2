@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="upload.js"></script>
+
+    <title>Upload file</title>
+
+    <style>
+        .outline{
+            border-top: 5px solid red;
+            border-bottom: 5px solid green;
+            border-left: 5px solid yellow;
+            border-right: 5px solid blue;
+            margin: 10%;
+            padding: 5%;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<div align="center" class="outline">
+    <h1 align="center"><img src="images/phoenix.jpg" class="rounded-circle" alt="logo" width="200" height="200"> File
+        upload using Google OAuth 2.0</h1>
+    <br>
+
+    <div style="border: 3px dashed; padding:5%;">
+
+        <img align="center" src="images/upload.png" alt="upload" height="300" width="300"/>
+        <br>
+<!--        <input-->
+<!--                class="btn btn-outline-dark"-->
+<!--                id="files"-->
+<!--                type="file"-->
+<!--                name="files[]"-->
+<!--                multiple-->
+<!--        />-->
+<!--        <button class="btn btn-dark" id="upload">Upload to Drive</button>-->
+<!--        <br><br>-->
+<!--        <div>-->
+<!--            <table class="table table-bordered">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th>File Name</th>-->
+<!--                    <th>Percentage (%)</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                <tr>-->
+<!--                    <td></td>-->
+<!--                    <td>-->
+<!--                        <div class="progress-bar"></div>-->
+<!--                        <div class="status">0%</div>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+
+<!--        </div>-->
+        <div>
+            <input id="files" type="file" name="files[]" multiple/>
+            <button id="upload">Upload</button>
+            <div id="progress-wrp">
+                <div class="progress-bar"></div>
+                <div class="status">0%</div>
+            </div>
+        </div>
+        <div id="result">
+
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
