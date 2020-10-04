@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:font-size="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Upload file</title>
+
+    <style>
+        .outline{
+            border-top: 5px solid red;
+            border-bottom: 5px solid green;
+            border-left: 5px solid yellow;
+            border-right: 5px solid blue;
+            margin: 10%;
+            padding: 5%;
+        }
+    </style>
+
+</head>
+<body>
+<div align="center" class="outline">
+    <h1 align="center"><img src="images/phoenix.jpg" class="rounded-circle" alt="logo" width="200" height="200"> Upload
+        Files using Google OAuth 2.0</h1>
+
+
+    <div>
+        <button type="button" class="btn btn-dark" data-toggle="tooltip" data-placement="right"
+                title="sign-in to Gmail account to upload files"
+                style="font-size : 50px;" onclick="signIn()">
+            <img src="images/google.png" width="90" height="90"/>
+            Sign in
+        </button>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+
+        var clientId ="847963554206-cd11sbfs81ks2r6i2vsh3fgg3qohmcgs.apps.googleusercontent.com"
+        var redirect_uri="http://localhost/OAuth2/upload.html"
+        var scope="https://www.googleapis.com/auth/drive"
+        var url=""
+
+        function signIn(clientId,redirect_uri,scope,url){
+
+        url = "https://accounts.google.com/o/oauth2/v2/auth?redirect_uri="+redirect_uri
+        +"&prompt=consent&response_type=code&client_id="+clientId+"&scope="+scope
+        +"&access_type=offline";
+
+        window.location = url;
+
+        }
+
+        });
+
+
+    </script>
+</div>
+
+</body>
+</html>
