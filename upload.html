@@ -7,6 +7,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="upload.js"></script>
 
     <title>Upload file</title>
@@ -20,6 +25,34 @@
             margin: 10%;
             padding: 5%;
         }
+        #progress-wrp {
+            border: 1px solid ;
+            padding: 1px;
+            position: relative;
+            height: 30px;
+            width: 60%;
+            text-align: left;
+            box-shadow: inset 1px 3px 6px rgba(0, 0, 0, 0.12);
+            border-radius: 3px;
+            margin: 10px;
+            text-align: left;
+        }
+
+        #progress-wrp .progress-bar {
+            height: 100%;
+            border-radius: 3px;
+            width: 0;
+            box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.11);
+        }
+
+        #progress-wrp .status {
+            top: 3px;
+            left: 50%;
+            position: absolute;
+            display: inline-block;
+        }
+
+
 
 
     </style>
@@ -31,53 +64,52 @@
         upload using Google OAuth 2.0</h1>
     <br>
 
-    <div style="border: 3px dashed; padding:5%;">
+    <div style="border: 3px dashed; padding:5%; height:800px;">
 
         <img align="center" src="images/upload.png" alt="upload" height="300" width="300"/>
         <br>
-<!--        <input-->
-<!--                class="btn btn-outline-dark"-->
-<!--                id="files"-->
-<!--                type="file"-->
-<!--                name="files[]"-->
-<!--                multiple-->
-<!--        />-->
-<!--        <button class="btn btn-dark" id="upload">Upload to Drive</button>-->
-<!--        <br><br>-->
-<!--        <div>-->
-<!--            <table class="table table-bordered">-->
-<!--                <thead>-->
-<!--                <tr>-->
-<!--                    <th>File Name</th>-->
-<!--                    <th>Percentage (%)</th>-->
-<!--                </tr>-->
-<!--                </thead>-->
-<!--                <tbody>-->
-<!--                <tr>-->
-<!--                    <td></td>-->
-<!--                    <td>-->
-<!--                        <div class="progress-bar"></div>-->
-<!--                        <div class="status">0%</div>-->
-<!--                    </td>-->
-<!--                </tr>-->
-<!--                </tbody>-->
-<!--            </table>-->
-
-<!--        </div>-->
-        <div>
-            <input id="files" type="file" name="files[]" multiple/>
-            <button id="upload">Upload</button>
-            <div id="progress-wrp">
-                <div class="progress-bar"></div>
-                <div class="status">0%</div>
-            </div>
+        <input
+                class="btn btn-outline-dark"
+                id="files"
+                type="file"
+                name="files[]"
+                multiple
+        />
+        <button class="btn btn-dark" id="upload">Upload to Drive</button>
+        <br><br>
+        <div id="progress-wrp">
+            <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+            <div class="status">0%</div>
+            <br><br>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Type</th>
+                    <th>Size</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="name"></div>
+                    </td>
+                    <td>
+                        <div class="type"></div>
+                    </td>
+                    <td>
+                        <div class="size"></div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-        <div id="result">
 
-        </div>
     </div>
+</div>
 
 
 </div>
 </body>
 </html>
+

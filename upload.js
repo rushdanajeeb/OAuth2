@@ -8,6 +8,9 @@ $(document).ready(function(){
     const scope = "https://www.googleapis.com/auth/drive";
     var access_token= "";
     var client_id = "847963554206-cd11sbfs81ks2r6i2vsh3fgg3qohmcgs.apps.googleusercontent.com";
+    var name;
+    var type;
+    var size;
 
 
     $.ajax({
@@ -57,8 +60,11 @@ $(document).ready(function(){
         var that = this;
         var formData = new FormData();
 
-        // add assoc key values, this will be posts values
         formData.append("file", this.file, this.getName());
+        name = this.getName();
+        type = this.getType();
+        size = this.getSize();
+//        console.log(this.getName());
         formData.append("upload_file", true);
 
         $.ajax({
@@ -79,9 +85,13 @@ $(document).ready(function(){
                 return myXhr;
             },
             success: function (data) {
+//                swal("Good job!", "You clicked the button!", "success");
+                alert("All file/s uploaded!");
+                location.reload();
                 console.log(data);
             },
             error: function (error) {
+                alert("Upload failed! retry");
                 console.log(error);
             },
             async: true,
@@ -101,18 +111,19 @@ $(document).ready(function(){
         if (event.lengthComputable) {
             percent = Math.ceil(position / total * 100);
         }
-        // update progressbars classes so it fits your code
+
         $(progress_bar_id + " .progress-bar").css("width", +percent + "%");
         $(progress_bar_id + " .status").text(percent + "%");
+        $(progress_bar_id + " .name").text(name);
+        $(progress_bar_id + " .type").text(type);
+        $(progress_bar_id + " .size").text(size);
     };
 
     $("#upload").on("click", function (e) {
         var file = $("#files")[0].files[0];
         var upload = new Upload(file);
 
-        // maby check size or type here with upload.getSize() and upload.getType()
 
-        // execute upload
         upload.doUpload();
     });
 
