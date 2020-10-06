@@ -35,9 +35,13 @@
 ### Execution
 
 - go to following URL: ``` https://localhost/OAuth2/ ```
-- click on sign-in button
+- click on sign-in button.
 <img src="/application snaps/home.jpeg" alt="home page" width="400" height="300" />
+
+- .verify application.
 <img src="/application snaps/authorization.jpeg" alt="home page" width="400" height="300" />
 
 - choose files to upload and see the file name, type, size and upload.
 <img src="/application snaps/upload.jpeg" alt="home page" width="400" height="500" />
+
+- check goole drive for the uploaded image.
